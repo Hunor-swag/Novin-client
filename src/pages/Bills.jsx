@@ -7,28 +7,27 @@ import { Link } from "react-router-dom";
 const Bills = (props) => {
   const [bills, setBills] = useState([]);
 
+  // fetch bill data from database using api endpoint
   useEffect(() => {
     fetch("http://localhost:5050/bills")
       .then((response) => response.json())
       .then((data) => {
         setBills(data);
-        // console.log(data);
       });
   }, []);
 
+  // is the user logged in?
   let token = document.cookie.split("=")[1];
   if (!token) {
     return <NotLoggedIn />;
   }
 
   const userToken = parseJwt(token);
-  // console.log(userToken);
 
   return (
     <div className="flex">
       <Sidebar userToken={userToken} />
       <div className="p-7 text-2xl font-semibold flex-1 h-screen">
-        <h1>Bills</h1>
         <table className="table">
           <tbody>
             <tr>

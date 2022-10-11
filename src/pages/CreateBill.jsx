@@ -5,14 +5,14 @@ import parseJwt from "../functions/parseJwt";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
 
-const CreateBill = (props) => {
+const CreateBill = () => {
+  // is the user logged in?
   let token = document.cookie.split("=")[1];
   if (!token) {
     return <NotLoggedIn />;
   }
 
   const userToken = parseJwt(token);
-  // console.log(userToken);
 
   return (
     <div className="flex">
@@ -29,6 +29,7 @@ const CreateBill = (props) => {
               price: "",
             }}
             onSubmit={async (values) => {
+              // send data to api
               const requestData = {
                 customer_name: values.customer_name,
                 date_of_issue: values.date_of_issue,

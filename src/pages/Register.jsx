@@ -25,6 +25,7 @@ const Register = () => {
           password: "",
         }}
         onSubmit={async (values) => {
+          // construct a date string
           const date = new Date();
           const datestring =
             date.getFullYear() +
@@ -38,7 +39,7 @@ const Register = () => {
             password: values.password,
             date: datestring,
           };
-
+          // send data to api
           await axios
             .post("http://localhost:5050/register", requestData)
             .then((response) => {

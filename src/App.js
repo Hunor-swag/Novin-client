@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import CreateBill from "./pages/CreateBill";
 import Bills from "./pages/Bills";
 import Logout from "./pages/Logout";
+import ViewBill from "./pages/ViewBill";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/bills" element={<Bills />} />
         <Route path="/create-bill" element={<CreateBill />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/view-bill" element={<ViewBill />} />
       </Routes>
     </BrowserRouter>
   );

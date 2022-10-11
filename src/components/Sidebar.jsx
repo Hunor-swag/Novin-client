@@ -5,6 +5,7 @@ import control from "../assets/control.png";
 import logo from "../assets/logo.png";
 
 function getTime() {
+  // make a time string
   let today = new Date();
   var hours = today.getHours() < 10 ? "0" + today.getHours() : today.getHours();
   var minutes =
@@ -18,17 +19,21 @@ const Sidebar = (props) => {
   const [time, setTime] = useState("");
 
   const timeInterval = () => {
+    // set the time state to current time
     setTime(getTime());
   };
 
   useEffect(() => {
+    // update current time
     timeInterval();
     setInterval(timeInterval, 1000);
   }, []);
 
+  // array of links at the left
   const links = [
     { text: "Home", route: "/" },
     { text: "Bills", route: "/bills" },
+    { text: "View Bill", route: "/view-bill" },
     { text: "Create a bill", route: "/create-bill" },
     { text: "Log out", route: "/logout" },
   ];

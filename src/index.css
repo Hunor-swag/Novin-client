@@ -11,5 +11,7 @@ body{
 	@apply border-black border-2 border-collapse p-2
 }
 
-.table{
+
+.label{
+	width:34px;
 }

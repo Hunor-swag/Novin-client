@@ -5,9 +5,9 @@ import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Login = () => {
-  const [attempts, setAttempts] = useState(0);
-  const [msg, setMsg] = useState("");
-  const [isVerified, setIsVerified] = useState(false);
+  const [attempts, setAttempts] = useState(0); // attempts to log in
+  const [msg, setMsg] = useState(""); // fail message under buttons
+  const [isVerified, setIsVerified] = useState(false); // captcha state
   const captchaRef = useRef(null);
 
   const usernameValid = (username) => {
@@ -35,6 +35,7 @@ const Login = () => {
             return;
           }
 
+          // send login data to api
           const requestData = {
             username: values.username,
             password: values.password,
