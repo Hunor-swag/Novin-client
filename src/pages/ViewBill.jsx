@@ -29,7 +29,8 @@ const ViewBill = () => {
   };
 
   const selectChange = (e) => {
-    setValues(bills.find((bill) => bill.customer_name === e.target.value));
+    if (e.target.value !== "")
+      setValues(bills.find((bill) => bill.customer_name === e.target.value));
   };
 
   // is the user logged in?
